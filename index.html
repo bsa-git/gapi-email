@@ -140,15 +140,6 @@
     }
 
     function updateSigninStatus(isSignedIn) {
-//        if (isSignedIn) {
-//            authorizeButton.style.display = 'none';
-//            signoutButton.style.display = 'block';
-//            makeApiCall();
-//        } else {
-//            authorizeButton.style.display = 'block';
-//            signoutButton.style.display = 'none';
-//        }
-
         if (isSignedIn) {
             loadGmailApi();
             $('#authorize-button').remove();
@@ -162,37 +153,9 @@
         }
     }
 
-//    function checkAuth() {
-//        gapi.auth.authorize({
-//            client_id: clientId,
-//            scope: scopes,
-//            immediate: true
-//        }, handleAuthResult);
-//    }
-
     function handleAuthClick() {
-//        gapi.auth.authorize({
-//            client_id: clientId,
-//            scope: scopes,
-//            immediate: false
-//        }, handleAuthResult);
-//        return false;
         gapi.auth2.getAuthInstance().signIn();
     }
-
-//    function handleAuthResult(authResult) {
-//        if (authResult && !authResult.error) {
-//            loadGmailApi();
-//            $('#authorize-button').remove();
-//            $('.table-inbox').removeClass("hidden");
-//            $('#compose-button').removeClass("hidden");
-//        } else {
-//            $('#authorize-button').removeClass("hidden");
-//            $('#authorize-button').on('click', function () {
-//                handleAuthClick();
-//            });
-//        }
-//    }
 
     function loadGmailApi() {
         gapi.client.load('gmail', 'v1', displayInbox);
